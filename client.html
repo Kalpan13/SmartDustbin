@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Websocket</title>
+</head>
+
+<body>
+<div style=" width: 800px; height: 550px;" id="display">
+
+<svg viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+
+  <polygon id="empty" points="0,0 25,0 25,40 0,40" style="fill:lime;"/>
+  <polygon id="filled" points="20,40 20,40 20,40 " style="fill:red;"/>
+
+</svg>
+
+
+  
+</div>
+  <script>
+  
+    var sock =new WebSocket("ws://192.168.43.220:3000");  
+    var display=document.getElementById("display")
+  
+    sock.onopen=function(event)
+        {
+          
+              setTimeout(function(){
+                sock.send('connection succeeded');},1000);
+              display.innerHTML+="connection succeeded <br />";
+        
+        };
+
+  sock.onmessage=function(event){
+
+        console.log(event.data);
+
+        var msg = event.data;
+        var full_dist = 50;
+        var cur_dis = parseInt(msg.substring(msg.indexOf(' ')+1,msg.length));
+
+        var dheight = 40;
+        var dwidth = 25;
+
+        var ratio = cur_dis / full_dist;
+        var new_height = dheight * ratio;
+        var g_points = "0,0 25,0 " + "25,"+new_height.toString()+" 0,"+ new_height.toString();
+        var r_points = "0,"+ new_height.toString() + " 25,"+new_height.toString()+" 25,40 0,40";
+        console.log(g_points);
+        console.log(r_points);
+        document.getElementById('empty').setAttribute("points", g_points);
+
+        document.getElementById('filled').setAttribute("points", r_points);
+ }
+  
+
+function clearlog()
+{
+        display.innerHTML="";
+}
+  </script>
+</body>
+</html>
