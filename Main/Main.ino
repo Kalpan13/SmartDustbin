@@ -2,8 +2,8 @@
 #include <ESP8266WiFi.h>
 #include <WebSocketClient.h>
 
-#define WIFI_SSID "Kalpan13"          //Wifi Name
-#define WIFI_PASSWORD "Kalpan12345"   //Password
+#define WIFI_SSID "WIFI_NAME"          //Wifi Name
+#define WIFI_PASSWORD "WIFI_PASSWORD"   //Password
 
 boolean handshakeFailed=0;
 String data= "";
