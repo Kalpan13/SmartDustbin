@@ -17,7 +17,7 @@ An IoT based Smart Dustbin that can send the status of Garbage Level to server. 
 
 1. Start the Node Server using `node Node_Server.js`
 2. Upload [Main.ino](Main/Main.ino) file into NodeMCU using Arduino IDE
-3. Open [Client.html](Client.html) 
+3. Open [client.html](client.html) 
 
 <b>Library Requirements</b>
 
