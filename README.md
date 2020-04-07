@@ -36,3 +36,5 @@ For ArduinoIDE
 * WebSocketClient.
 
 _can be installed using Library Manager_
+
+Working Demo : [SmartBin](https://drive.google.com/file/d/1SaN5MZjGWM1yHQJv9Evq9iGWcE_RgZHO/view?usp=sharing)
